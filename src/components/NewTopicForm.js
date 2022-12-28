@@ -18,11 +18,15 @@ export default function NewTopicForm() {
     if (name.length === 0) {
       return;
     }
-    setId(uuidv4());
-    dispatch({ type: addTopic, payload: {
-      name, icon, id
-    }})
-    setId("");
+    const id = uuidv4();
+    let newTopic = {
+      name,
+      icon,
+      id
+    }
+    console.log(id);
+    dispatch({ type: addTopic, payload: newTopic})
+    newTopic = {};
     history.push(ROUTES.topicsRoute());
   };
 
